@@ -1,0 +1,11 @@
+lista=[1,4,2,0,5]
+lista1=[]
+#for num in range(len(lista)):
+    #if num>2:
+        #lista1.append(num)
+#print(lista1) #me imprime los valores [3,4] porque son las posiciones que son mayores que 
+
+for num in range(len(lista)):
+    if num>2:
+        lista1.append(lista [num]) #si hago esto me imprime los valores de la lista.
+print(lista1)
