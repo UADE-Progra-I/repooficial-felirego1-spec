@@ -29,7 +29,12 @@ def main():
     print(proveedores)
 
 def siguiente_id(matriz):
-    return (max([x["id"] for x in matriz]) + 1) if matriz else 1
+    try:
+        return (max([x["id"] for x in matriz]) + 1) if matriz else 1
+    except (KeyError,TypeError, ValueError) as e:
+        print(f"Error al calcular el siguiente ID: ´{e}")
+        return 1 
+
 
 def crear_proveedor(proveedores):
 
@@ -38,14 +43,20 @@ def crear_proveedor(proveedores):
         nombre = input("Ingrese el nombre del proveedor: ")
         if re.match(P_NOMBRE, nombre):
             break
-        print("Error: Nombre inválido")
+        print("Error: Nombre invalido")
 
-    # Solicitar y validar email
+           # Solicitar y validar email
     while True:
         email = input("Ingrese el email del proveedor: ")
         if re.match(P_EMAIL, email):
             break
         print("Error: Email inválido")
+    
+    try:
+        nuevo_id= siguiente_id(proveedores)
+    except Exception as e:
+        print(f"No se pudo generar un ID unico:{e}")
+        nuevo_id= 1 
 
     proveedor = {
         "id": siguiente_id(proveedores),
