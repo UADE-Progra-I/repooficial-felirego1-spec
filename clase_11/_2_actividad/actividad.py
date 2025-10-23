@@ -18,7 +18,19 @@ productos = [
     [2, "Pantalón Negro", "Indumentaria", 13500.00]
 ]
 """
+import pandas as pd
 
+# Ruta completa al archivo CSV
+ruta = "C:/Users/felir/OneDrive/Documentos/GitHub/repooficial-felirego1-spec/clase_11/_2_actividad/data/productos.csv"
+
+# Leer el CSV sin encabezado
+df = pd.read_csv(ruta, header=None)
+
+# Convertir el DataFrame a lista de listas
+lista_de_listas = df.values.tolist()
+
+# Mostrar el resultado
+print(lista_de_listas)
 # Ejercicio 2
 
 """
@@ -32,6 +44,7 @@ en forma de lista de listas.
 - Manejar el caso en que el archivo no exista (FileNotFoundError) devolviendo una lista vacía.
 
 """
+
 
 # Ejercicio 3
 """
