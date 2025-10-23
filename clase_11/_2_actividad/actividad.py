@@ -18,19 +18,39 @@ productos = [
     [2, "Pantalón Negro", "Indumentaria", 13500.00]
 ]
 """
-import pandas as pd
+import pandas as pd #si quiero una lista de listas
 
 # Ruta completa al archivo CSV
 ruta = "C:/Users/felir/OneDrive/Documentos/GitHub/repooficial-felirego1-spec/clase_11/_2_actividad/data/productos.csv"
 
 # Leer el CSV sin encabezado
-df = pd.read_csv(ruta, header=None)
+df = pd.read_csv(ruta, header=None) #el header=none asigna numeros a las columnas
 
 # Convertir el DataFrame a lista de listas
-lista_de_listas = df.values.tolist()
+lista_de_listas = df.values.tolist() #cada fila se transforma en una lista interna
 
 # Mostrar el resultado
 print(lista_de_listas)
+
+
+
+#si quiero una lista de diccionarios
+import pandas as pd
+import json
+
+ruta = "C:/Users/felir/OneDrive/Documentos/GitHub/repooficial-felirego1-spec/clase_11/_2_actividad/data/productos.csv"
+
+# Leer CSV sin encabezado
+df = pd.read_csv(ruta, header=None) #el header=none asigna valores a columnas
+
+# Asignar nombres de columnas
+df.columns = ["ID", "Nombre", "Categoría", "Precio"] #le asigna el nombre a cada columna
+
+# Convertir a lista de diccionarios
+lista_de_diccionarios = df.to_dict(orient="records") 
+
+# Mostrar como JSON
+print(json.dumps(lista_de_diccionarios, indent=2, ensure_ascii=False))
 # Ejercicio 2
 
 """
@@ -118,3 +138,5 @@ def test_insert_productos():
     data = read_productos("test_productos.csv")
     assert any(row[1] == "Buzo Negro" for row in data)
 """
+
+
