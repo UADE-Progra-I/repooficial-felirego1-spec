@@ -9,7 +9,7 @@ Dada una lista de números del 1 al 10, generar una nueva lista que contenga
 los cubos de los números impares."""
 
 numeros = list(range(1, 11))
-cubos_impares = [...]  # completar
+cubos_impares = [num**3 for num in numeros if num %2 !=0]  # completar
 print("Cubos de impares:", cubos_impares)
 # Resultado esperado: [1, 27, 125, 343, 729]
 
@@ -21,7 +21,7 @@ Dada una lista de palabras, obtener otra lista con solo aquellas que tengan
 """
 
 palabras = ["sol", "luna", "estrella", "mar", "cielo", "ave"]
-palabras_cortas = [...]  # completar
+palabras_cortas = [palabra for palabra in palabras if len(palabra)<=4 ]  # completar
 print("Palabras cortas:", palabras_cortas)
 # Resultado esperado: ["sol", "luna", "mar", "ave"]
 
@@ -32,6 +32,6 @@ Dada una lista de enteros, crear una nueva lista que contenga la palabra "Positi
 """
 
 lista = [3, -1, 0, 7, -5, 2]
-clasificacion = [...]  # completar
+clasificacion = ["positivo" if numero>=0 else "negativo" for numero in lista]  # completar
 print("Clasificación:", clasificacion)
 # Resultado esperado: ["Positivo", "Negativo", "Cero", "Positivo", "Negativo", "Positivo"]
